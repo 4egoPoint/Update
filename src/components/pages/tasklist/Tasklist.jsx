@@ -1,33 +1,66 @@
 
 
+import { FaPlus } from "react-icons/fa6";
 import { IoIosInformationCircle } from "react-icons/io";
 import "./tasklist.scss"
 import Radio from "./components/Radio";
 
-const radioLvls = [
+const checkboxLvls = [
    {
-      id: "one",
       value: 1,
-      name: "lvls",
-      isChecked: false,
+      title: "Easy",
+      property:"",
    },
    {
-      id:"two",
       value: 2,
-      name: "lvls",
-      isChecked: false,
+      title: "Medium",
+      property:"",
    },
    {
-      id:"else",
       value: 3,
-      name: "lvls",
-      isChecked: false,
+      title: "Hurd",
+      property:"",
+   },
+]
+const checkboxPriority = [
+   {
+      value: 1,
+      title: "Common",
+      property:"",
    },
    {
-      id:"else",
-      value: 0,
-      name: "lvls",
-      isChecked: true,
+      value: 2,
+      title: "Important",
+      property:"",
+   },
+   {
+      value: 3,
+      title: "Necessary",
+      property:"",
+   },
+]
+const checkboxStatus = [
+   {
+      value: 1,
+      title: "New",
+      property:"",
+   },
+   {
+      value: 2,
+      title: "In process",
+      property:"",
+   },
+   {
+      value: 3,
+      title: "Done",
+      property:"",
+   },
+]
+const checkboxDaily = [
+   {
+      value: 1,
+      title: "Daily task",
+      property:"",
    },
 ]
 
@@ -37,14 +70,40 @@ const Tasklist = () => {
          <div className="tasklist__headrow headrow">
             <h1 className="headrow__title">Update!</h1>
             <div className="headrow__info">
-               <IoIosInformationCircle />
+               <IoIosInformationCircle className="headrow__info-icon" />
+               <div className="headrow__text">lor  asd asdasd asd as d asddas d as d asd as da sd a sd asda sd as das d as d asd</div>
             </div>
          </div>
-         <div className="tasklist__filters filters">
-            <div className="filters__lvls" > 
-            {
-               radioLvls.map((item)=>{<Radio key={item.value} id={item.id} value={item.value} name={item.name}/>})
-            }
+
+
+         <div className="tasklist__control-row">
+            <div className="tasklist__filters filters">
+               <div className="filters__type" >
+                  <h3>Level</h3>
+                  {
+                     checkboxLvls.map((item) => <Radio key={item.value} value={item.value} title={item.title} property={item.property}/>)
+                  }
+               </div>
+               <div className="filters__type" >
+                  <h3>Priority</h3>
+                  {
+                     checkboxPriority.map((item) => <Radio key={item.value} value={item.value} title={item.title} property={item.property}/>)
+                  }
+               </div>
+               <div className="filters__type" >
+                  <h3>Status</h3>
+                  {
+                     checkboxStatus.map((item) => <Radio key={item.value} value={item.value} title={item.title} property={item.property}/>)
+                  }
+               </div>
+               <div className="filters__type" >
+                  {
+                     checkboxDaily.map((item) => <Radio key={item.value} value={item.value} title={item.title} property={item.property}/>)
+                  }
+               </div>
+            </div>
+            <div className="tasklist__create">
+               <button className="tasklist__button"><FaPlus /> New task </button>
             </div>
          </div>
       </div>

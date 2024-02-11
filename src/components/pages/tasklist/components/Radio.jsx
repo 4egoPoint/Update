@@ -2,13 +2,13 @@
 
 import "./components.scss"
 
-const Radio = ({id, name, value, isChecked}) => {
+const Radio = ({ property, value, title}) => {
    return (
-      <div className="radio">
-         <input type="radio" id={id} name={name} value={value} checked={isChecked ? true : false} />
-         <label for={value}>{value}</label>
+      <div className="checkbox">
+         <input type="checkbox"  value={value} />
+         {title}
       </div>
    )
 }
 
-export default Radio
+export default Radio 

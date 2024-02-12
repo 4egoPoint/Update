@@ -9,14 +9,13 @@ const initialState = [
       isItDone: false,// if task still eneble
       isTaskDaily: false,// of true castomer hawe to du it eweryday
       compliteCounter: 0, // use when it is note one time task
-      curProgres: 100,// number for progress bar
-      title: "",// nae of task
-      text: "",// deskription of task
-      colorMark: "", // add color mark for task
+      curProgress: 100,// number for progress bar
+      title: "title",// nae of task
+      text: "text",// deskription of task
       smallTaskArr: [
          {
             id: 12,
-            title: "",
+            title: "arritemtitle",
          },
       ]
    },
@@ -34,16 +33,15 @@ export const taskListSlice = createSlice({
             isItDone: action.payload.isItDone,
             isTaskDaily: action.payload.isTaskDaily,
             compliteCounter: action.payload.compliteCounter, 
-            curProgres: action.payload.curProgres,
+            curProgress: action.payload.curProgress,
             title: action.payload.title,
             text: action.payload.text,
-            colorMark: action.payload.colorMark, 
             smallTaskArr: [...action.payload.smallTaskArr]
          },...state]
       },
    },
 })
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { increment, decrement, incrementByAmount } = taskListSlice.actions
 
-export default counterSlice.reducer
+export default taskListSlice.reducer

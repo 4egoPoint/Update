@@ -4,6 +4,8 @@ import { FaPlus } from "react-icons/fa6";
 import { IoIosInformationCircle } from "react-icons/io";
 import "./tasklist.scss"
 import Radio from "./components/Radio";
+import Smalltask from "./components/Smalltask";
+import { useSelector } from 'react-redux'
 
 const checkboxLvls = [
    {
@@ -65,6 +67,7 @@ const checkboxDaily = [
 ]
 
 const Tasklist = () => {
+   const taskList = useSelector((state) => state.taskList)
    return (
       <div className='tasklist'>
          <div className="tasklist__headrow headrow">
@@ -105,6 +108,20 @@ const Tasklist = () => {
             <div className="tasklist__create">
                <button className="tasklist__button"><FaPlus /> New task </button>
             </div>
+         </div>
+
+
+         <div className="tasklist__list">
+            {
+               taskList.map((item)=><Smalltask 
+               key={item.id}
+               title={item.title}
+               text={item.text}
+               isTaskDaily={item.isTaskDaily}
+               isItDone={item.isItDone}
+               curProgress={item.curProgres}
+               />)
+            }
          </div>
       </div>
    )

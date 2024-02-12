@@ -1,56 +1,66 @@
-
-.tasklist{
-   .headrow{
+.tasklist {
+   height: 100%;
+   .headrow {
       margin-bottom: 10px;
       display: flex;
       justify-content: space-between;
       font-size: 20px;
-      &__title{
+
+      &__title {
          cursor: default;
       }
-      &__info{
+
+      &__info {
          cursor: default;
          position: relative;
-         .headrow__info-icon{
-         font-size: 40px;
+
+         .headrow__info-icon {
+            font-size: 40px;
          }
-         .headrow__text{
+
+         .headrow__text {
             max-width: 200px;
             height: 100px;
             width: 200px;
             display: none;
             position: absolute;
-            padding: 5px; 
+            padding: 5px;
             background-color: white;
-            right: 0;   
+            right: 0;
             border: 1px solid black;
             border-radius: 5px;
          }
-         &:hover .headrow__text{
+
+         &:hover .headrow__text {
             display: block;
          }
       }
    }
-   &__control-row{
+
+   &__control-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
       height: 100px;
       // background-color: beige;
       background-color: lightcyan;
-      .filters{
+
+      .filters {
          padding: 10px;
          display: flex;
          align-items: center;
          gap: 20px;
-         .filters__type:not(:last-child){
+
+         .filters__type:not(:last-child) {
             padding: 0 0 0 5px;
             border-left: 1px solid black;
          }
       }
-      .tasklist__create{
+
+      .tasklist__create {
          height: 100%;
-         .tasklist__button{
+
+         .tasklist__button {
             border: none;
             border-left: 4px solid rgb(146, 187, 187);
             background-color: rgb(146, 187, 187);
@@ -58,17 +68,42 @@
             font-weight: 600;
             padding: 0 10px;
             display: flex;
-            justify-content: space-around; 
+            justify-content: space-around;
             align-items: center;
             height: 100%;
             width: 200px;
             font-size: 25px;
-            &:hover{
+
+            &:hover {
                background-color: lightcyan;
                color: black;
                border-left: 4px solid black;
             }
          }
+      }
+   }
+
+   .tasklist__list {
+      z-index: 100;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-direction: column;
+      height: 400px;
+      width: 100%;
+      overflow: hidden;
+      overflow-y: scroll;
+      margin-top: 15px;
+      &::-webkit-scrollbar {
+         width: 5px;
+      }
+
+      &::-webkit-scrollbar-track {
+         box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      }
+
+      &::-webkit-scrollbar-thumb {
+         background-color: darkgreen;
       }
    }
 }
